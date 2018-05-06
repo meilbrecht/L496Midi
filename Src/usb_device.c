@@ -56,7 +56,6 @@
 #include "usbd_audio_if.h"
 
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
@@ -111,7 +110,21 @@ void MX_USB_DEVICE_Init(void)
   USBD_Start(&hUsbDeviceFS);
   }
   /* USER CODE BEGIN USB_DEVICE_Init_PostTreatment */
-  
+#if 0
+  // MIDI instead of AUDIO (todo - check if this does everything that is necessary! de-init, de-register,...)
+  //	1. stop usbd
+  USBD_Stop(&hUsbDeviceFS);
+  //	2. de-init audio
+  USBD_DeInit(&hUsbDeviceFS);
+  //	3. init midi
+  USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
+  USBD_RegisterClass(&hUsbDeviceFS, &USBD_MIDI);
+  //USBD_MIDI_RegisterInterface(&hUsbDeviceFS, &USBD_MIDI_fops_FS);
+  //	4. start usbd
+  //if (USBD_LL_BatteryCharging(&hUsbDeviceFS) != USBD_OK) {
+    USBD_Start(&hUsbDeviceFS);
+  //}
+#endif
   /* USER CODE END USB_DEVICE_Init_PostTreatment */
 }
 

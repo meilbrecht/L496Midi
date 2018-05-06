@@ -1,0 +1,84 @@
+Configuration	L496Midi
+STM32CubeMX 	4.25.0
+Date	05/06/2018
+MCU	STM32L496ZGTx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+DAC1	Connected to external pin only	DAC1_OUT1	PA4
+DAC1	Connected to external pin only	DAC1_OUT2	PA5
+LPUART1	Asynchronous	LPUART1_RX	PG8
+LPUART1	Asynchronous	LPUART1_TX	PG7
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PH0-OSC_IN (PH0)
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PH1-OSC_OUT (PH1)
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_IN	PC14-OSC32_IN (PC14)
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_OUT	PC15-OSC32_OUT (PC15)
+SPI1	Full-Duplex Master	SPI1_MISO	PE14
+SPI1	Full-Duplex Master	SPI1_MOSI	PE15
+SPI1	Full-Duplex Master	SPI1_SCK	PE13
+SPI1	Hardware NSS Output Signal	SPI1_NSS	PE12
+SYS	Trace Asynchronous Sw	SYS_JTMS-SWDIO	PA13 (JTMS/SWDIO)
+SYS	Trace Asynchronous Sw	SYS_JTCK-SWCLK	PA14 (JTCK/SWCLK)
+SYS	Trace Asynchronous Sw	SYS_JTDO-SWO	PB3 (JTDO/TRACESWO)
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USB_OTG_FS	Device_Only	USB_OTG_FS_DM	PA11
+USB_OTG_FS	Device_Only	USB_OTG_FS_DP	PA12
+USB_OTG_FS	VBUS sensing	USB_OTG_FS_VBUS	PA9
+USB_OTG_FS	Activate SOF	USB_OTG_FS_SOF	PA8
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+7	PC13	GPIO_EXTI13	B1
+8	PC14-OSC32_IN (PC14)	RCC_OSC32_IN	
+9	PC15-OSC32_OUT (PC15)	RCC_OSC32_OUT	
+23	PH0-OSC_IN (PH0)	RCC_OSC_IN	
+24	PH1-OSC_OUT (PH1)	RCC_OSC_OUT	
+40	PA4	DAC1_OUT1	
+41	PA5	DAC1_OUT2	
+65	PE12	SPI1_NSS	
+66	PE13	SPI1_SCK	
+67	PE14	SPI1_MISO	
+68	PE15	SPI1_MOSI	
+75	PB14	GPIO_Output	LD3 [Red]
+90	PG5	GPIO_Input	USB_OverCurrent [STMPS2151STR_FAULT]
+91	PG6	GPIO_Output	USB_PowerSwitchOn [STMPS2151STR_EN]
+92	PG7	LPUART1_TX	STLK_RX [STM32F103CBT6_PA3]
+93	PG8	LPUART1_RX	STLK_TX [STM32F103CBT6_PA2]
+100	PA8	USB_OTG_FS_SOF	USB_SOF [TP1]
+101	PA9	USB_OTG_FS_VBUS	USB_VBUS
+103	PA11	USB_OTG_FS_DM	USB_DM
+104	PA12	USB_OTG_FS_DP	USB_DP
+105	PA13 (JTMS/SWDIO)	SYS_JTMS-SWDIO	TMS
+109	PA14 (JTCK/SWCLK)	SYS_JTCK-SWCLK	TCK
+133	PB3 (JTDO/TRACESWO)	SYS_JTDO-SWO	SWO
+137	PB7	GPIO_Output	LD2 [Blue]
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : L496Midi
+Project Folder : C:\Users\mariu\Documents\STM32 Projects\L496Midi
+Toolchain / IDE : TrueSTUDIO
+Firmware Package Name and Version : STM32Cube FW_L4 V1.11.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
+Backup previously generated files when re-generating : Yes
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : Balanced Size/Speed
+
+
+
+
+
+

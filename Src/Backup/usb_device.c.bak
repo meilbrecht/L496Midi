@@ -52,11 +52,10 @@
 #include "usb_device.h"
 #include "usbd_core.h"
 #include "usbd_desc.h"
-#include "usbd_audio.h"
-#include "usbd_audio_if.h"
+#include "usbd_cdc.h"
+#include "usbd_cdc_if.h"
 
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
@@ -101,8 +100,8 @@ void MX_USB_DEVICE_Init(void)
   
   /* Init Device Library, add supported class and start the library. */
   USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
-  USBD_RegisterClass(&hUsbDeviceFS, &USBD_AUDIO);
-  USBD_AUDIO_RegisterInterface(&hUsbDeviceFS, &USBD_AUDIO_fops_FS);
+  USBD_RegisterClass(&hUsbDeviceFS, &USBD_CDC);
+  USBD_CDC_RegisterInterface(&hUsbDeviceFS, &USBD_Interface_fops_FS);
   /* Verify if the Battery Charging Detection mode (BCD) is used : */
   /* If yes, the USB device is started in the HAL_PCDEx_BCD_Callback */
   /* upon reception of PCD_BCD_DISCOVERY_COMPLETED message. */
@@ -111,7 +110,21 @@ void MX_USB_DEVICE_Init(void)
   USBD_Start(&hUsbDeviceFS);
   }
   /* USER CODE BEGIN USB_DEVICE_Init_PostTreatment */
-  
+#if 0
+  // MIDI instead of AUDIO (todo - check if this does everything that is necessary! de-init, de-register,...)
+  //	1. stop usbd
+  USBD_Stop(&hUsbDeviceFS);
+  //	2. de-init audio
+  USBD_DeInit(&hUsbDeviceFS);
+  //	3. init midi
+  USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
+  USBD_RegisterClass(&hUsbDeviceFS, &USBD_MIDI);
+  //USBD_MIDI_RegisterInterface(&hUsbDeviceFS, &USBD_MIDI_fops_FS);
+  //	4. start usbd
+  //if (USBD_LL_BatteryCharging(&hUsbDeviceFS) != USBD_OK) {
+    USBD_Start(&hUsbDeviceFS);
+  //}
+#endif
   /* USER CODE END USB_DEVICE_Init_PostTreatment */
 }
 

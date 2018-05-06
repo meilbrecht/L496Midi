@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-<ProjectName>E:\IBK_Systems\Projekte\InterneProjekte\2018-04-12_Midi\L496Midi\\L496Midi</ProjectName>
+<ProjectName>C:\Users\mariu\Documents\STM32 Projects\L496Midi\\L496Midi</ProjectName>
 <ProjectNature>C</ProjectNature> 
 <CMSIS>..\Drivers\CMSIS</CMSIS>
-<HAL_Driver>C:\Users\IBK_Systems\STM32Cube\Repository\STM32Cube_FW_L4_V1.11.0\Drivers\CMSIS</HAL_Driver>
+<HAL_Driver>C:\Users\mariu\STM32Cube\Repository\STM32Cube_FW_L4_V1.11.0\Drivers\CMSIS</HAL_Driver>
 <Toolchain>TrueSTUDIO</Toolchain>
 <Version>0</Version>
 
 <filestoremove>
     <file>
+    <name>..\Src\usbd_cdc_if.c</name>
+    <name>..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</name>
+    <name>..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</name>
     </file>
 </filestoremove>
 
@@ -17,6 +20,7 @@
 	   <include></include>
     </Aincludes>
 	<Cincludes>
+	   		<include>..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc</include>
     </Cincludes>
 </inctoremove>
 

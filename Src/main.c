@@ -112,10 +112,10 @@ int main(void)
   MX_DMA_Init();
   MX_LPUART1_UART_Init();
   MX_SPI1_Init();
-  MX_USB_DEVICE_Init();
   MX_DAC1_Init();
   /* USER CODE BEGIN 2 */
-
+  // todo - auto created by CubeMX -> uses USB_Audio instead of USB_Midi -> edit usb_device.c!
+  //MX_USB_DEVICE_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
